@@ -32,39 +32,31 @@
 
         {% csrf_token %}
         <div class="container">
-          <h2>Add New Donor Form</h2>
+          <h2>Add/Edit New Donor Form</h2>
           <br>
             <div class="form-group">
-              <label class="col-sm-2" for="OrganizationName">Organization Name</label>
-              <div class="col-sm-4"><input class="form-control" id="OrganizationName" name="OrganizationName" placeholder="Organization Name" type="text"></div>
+              <label class="col-sm-2" for="SelectDonor">Select Donor</label>
+              <div class="col-sm-4"><input class="form-control" id="SelectDonor" name="SelectDonor" placeholder="Select Donor" type="text"></div>
             </div>
-            <div class="form-group">
-              <label class="col-sm-2" for="Salutation">Salutation</label>
-              <div class="col-sm-4"><input class="form-control" id="Salutation" name="Salutation" placeholder="Salutation" type="text"></div>
-            </div>
-            <div class="form-group">
+	    <div class="form-group">
               <label class="col-sm-2">Donor Name</label>
               <div class="col-sm-2"><input class="form-control" placeholder="First Name" name="FirstName" type="text"></div>
               <div class="col-sm-2"><input class="form-control" placeholder="Last Name" name="LastName" type="text"></div>
             </div>
-            <div class="form-group">
-              <label class="col-sm-2" for="Email">Email Address</label>
-              <div class="col-sm-4"><input class="form-control" id="Email" name="Email" placeholder="Email Address" type="email"></div>
+	    <div class="form-group">
+              <label class="col-sm-2" for="DonorInactive">Inactive</label>
+              <div class="col-sm-1"><input class="form-control" id="DonorInactive" name="DonorInactive" placeholder="Inactive" type="checkbox"></div>
+            </div>
+	    <div class="form-group">
+              <label class="col-sm-2" for="OrganizationName">(Or) Organization Name</label>
+              <div class="col-sm-4"><input class="form-control" id="OrganizationName" name="OrganizationName" placeholder="(Or) Organization Name" type="text"></div>
             </div>
             <div class="form-group">
-              <label class="col-sm-2" for="PhoneNumber">Contact Number</label>
-              <div class="col-sm-4"><input class="form-control" id="PhoneNumber" name="PhoneNumber" placeholder="Enter in the format XXX-XXX-XXXX" type="tel" pattern="^\d{3}-\d{3}-\d{4}$" ></div>
+              <label class="col-sm-2" for="SearchName">Search Name</label>
+              <div class="col-sm-4"><input class="form-control" id="SearchName" name="SearchName" placeholder="Search Name" type="text"></div>
             </div>
-            <div class="form-group">
-              <label class="col-sm-2" for="Comments">Comments</label>
-              <div class="col-sm-4"><input class="form-control" id="Comments" name="Comments" placeholder="Comments" type="text"></div>
-            </div>
-            <!--<div class="form-group">
-              <label class="col-sm-2" for="Comments">Date</label>
-              <div class="col-sm-4"><input class="form-control" id="datepicker" name="Date" placeholder="Date" type="text"></div>
-            </div>-->
-            <div class="form-group">
-              <label class="col-sm-2" for="StreetAddress">Address Details</label>
+	    <div class="form-group">
+              <label class="col-sm-2" for="StreetAddress">Address</label>
               <div class="col-sm-4"><input class="form-control" id="StreetAddress" name="StreetAddress" placeholder="Street Address" type="text"></div>
             </div>
             <div class="form-group">
@@ -73,9 +65,17 @@
               <div class="col-sm-2"><input class="form-control" placeholder="State" name="State" type="text"></div>
               <div class="col-sm-2"><input class="form-control" placeholder="Zip" name="Zip" type="text"></div>
             </div>
+	    <div class="form-group">
+              <label class="col-sm-2" for="PhoneNumber">Contact Number</label>
+              <div class="col-sm-4"><input class="form-control" id="PhoneNumber" name="PhoneNumber" placeholder="Enter in the format XXX-XXX-XXXX" type="tel" pattern="^\d{3}-\d{3}-\d{4}$" ></div>
+            </div>
             <div class="form-group">
-              <label class="col-sm-2" for="ICS">Purchase by ICS</label>
-              <div class="col-sm-1"><input class="form-control" id="ICS" name="ICS" placeholder="Purchase by ICS" type="checkbox"></div>
+              <label class="col-sm-2" for="Email">Email Address</label>
+              <div class="col-sm-4"><input class="form-control" id="Email" name="Email" placeholder="Email Address" type="email"></div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2" for="Comments">Comments</label>
+              <div class="col-sm-4"><input class="form-control" id="Comments" name="Comments" placeholder="Comments" type="text"></div>
             </div>
          </div>
 
