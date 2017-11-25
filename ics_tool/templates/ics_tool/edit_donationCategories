@@ -39,8 +39,12 @@
               <label class="col-sm-2" for="Category">Category</label>
               <label class="col-sm-2" for="Description">Description</label>
               <label class="col-sm-2" for="SortOrder">Sort Order</label>
-              <label class="col-sm-2" for="ActiveStatus">Inactive/Active</label>    
+              <label class="col-sm-2" for="ActiveStatus">Inactive</label>    
           </div>
+	  <div class="form-group">
+              <label class="col-sm-2" for="SelectDonor">Select Donor</label>
+              <div class="col-sm-4"><input class="form-control" id="SelectDonor" name="SelectDonor" placeholder="Select Donor" type="text"></div>
+            </div>
           <div class="form-group">
               <label class="col-sm-2" for="Instruction">TO MAKE CHANGES: Click the button left of the Category you want to Edit; Make the Edits; then click the "Saave" button. To CANCEL changes before saving, or to select another without saving, Press the "Cancel Edit" button below.</label>   
           </div>
