@@ -1,0 +1,86 @@
+{% extends 'ics_tool/base.html' %}
+{% block head %}
+      {{ block.super }}
+      {% load bootstrap3 %}
+
+      {% bootstrap_messages %}
+
+      {% load static %}
+      <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	    <link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
+	    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script type="text/javascript">
+	    $(document).ready(function() {
+		    $( "#datepicker" ).datepicker({
+			     changeMonth: true,
+			     changeYear: true,
+           showButtonPanel: true,
+           dateFormat: 'MM yy',
+           onClose: function(dateText, inst) {
+               $(this).datepicker('setDate', new Date(inst.selectedYear, inst.selectedMonth, 1));
+           }
+		    });
+	    } );
+      </script>
+{% endblock %}
+
+{% block content %}
+
+      <div class="container">
+        <form action="{% url 'ics_tool:edit_donations_dataset' %}" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+        {% csrf_token %}
+        <div class="container">
+          <h2>Select Donation Records for Editing</h2>
+          <br>
+            <div class="form-group">
+              <label class="col-sm-2" for="DateRange">Date Range</label>
+              <label class="col-sm-2" for="From">From:</label>
+              <div class="col-sm-4"><input class="form-control" id="From" name="From" type="text"></div>
+              <label class="col-sm-2" for="To">To:</label>
+              <div class="col-sm-4"><input class="form-control" id="To" name="To" type="text"></div>
+              <label class="col-sm-2" for="AllDates">All Dates</label>
+              <div class="col-sm-2"><input class="form-control" id="AllDates" name="AllDates" type="checkbox"></div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2" for="Inactivated">Inactivated</label>
+              <label class="col-sm-2" for="Inactive">Inactive</label>
+              <div class="col-sm-2"><input class="form-control" id="Inactive" name="Inactive" type="checkbox"></div>
+              <label class="col-sm-2" for="Active">Active</label>
+              <div class="col-sm-2"><input class="form-control" id="Active" name="Active" type="checkbox"></div>
+              <label class="col-sm-2" for="AllRecords">All Records</label>
+              <div class="col-sm-2"><input class="form-control" id="AllRecords" name="AllRecords" type="checkbox"></div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2" for="Donor">Donor</label>
+              <div class="col-sm-4"><input class="form-control" id="Donor" name="Donor" type="text"></div>
+              <label class="col-sm-2" for="AllDonors">All Donors</label>
+              <div class="col-sm-2"><input class="form-control" id="AllDonors" name="AllDonors" type="checkbox"></div>
+            </div>
+           <div class="form-group">
+              <label class="col-sm-2" for="RecordSelectionLabel">Record Selection</label>
+            </div>
+         </div>
+
+        {% buttons %}
+
+        <div class="form-group">
+          <div class="col-sm-2">
+            <button type="CheckSelection" class="btn btn-info pull-right">Check Selection</button>
+          </div>
+          <div class="col-sm-2">
+            <button type="Cancel" class="btn btn-info pull-right">Cancel and Return</button>
+          </div>
+          <div class="col-sm-2">
+            <button type="RedoSelection" class="btn btn-info pull-right">Redo Selection</button>
+          </div>
+          <div class="col-sm-2">
+            <button type="AcceptSelection" class="btn btn-info pull-right">Accept Selection</button>
+          </div>
+        </div>
+          {% endbuttons %}
+        </form>
+      </div>
+
+{% endblock %}
