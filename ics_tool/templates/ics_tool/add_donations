@@ -1,1 +1,133 @@
+{% extends 'ics_tool/base.html' %}
+{% block head %}
+      {{ block.super }}
+      {% load bootstrap3 %}
 
+      {% bootstrap_messages %}
+
+      {% load static %}
+      <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	    <link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
+	    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script type="text/javascript">
+	    $(document).ready(function() {
+		    $( "#datepicker" ).datepicker({
+			     changeMonth: true,
+			     changeYear: true,
+           showButtonPanel: true,
+           dateFormat: 'MM yy',
+           onClose: function(dateText, inst) {
+               $(this).datepicker('setDate', new Date(inst.selectedYear, inst.selectedMonth, 1));
+           }
+		    });
+	    } );
+      </script>
+{% endblock %}
+
+{% block content %}
+
+      <div class="container">
+        <form action="{% url 'ics_tool:add_donations' %}" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+        {% csrf_token %}
+        <div class="container">
+          <h2>Add Donations</h2>
+          <br>
+            <div class="form-group">
+              <label class="col-sm-2" for="DonorInformation"><u>Donor Information</u></label>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2" for="SelectDonor">Select Donor</label>
+              <div class="col-sm-4"><input class="form-control" id="SelectDonor" name="SelectDonor" placeholder="Select Donor" type="text"></div>
+              <label class="col-sm-2" for="Or">Or</label>
+              <div class="col-sm-2">
+                <button type="NotinList" class="btn btn-info pull-right">Not in List</button>
+              </div>
+            </div>
+	          <div class="form-group">
+              <label class="col-sm-2">Donor Name</label>
+              <div class="col-sm-2"><input class="form-control" placeholder="First Name" name="FirstName" type="text"></div>
+              <div class="col-sm-2"><input class="form-control" placeholder="Last Name" name="LastName" type="text"></div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2">Donor ID</label>
+              <div class="col-sm-2"><input class="form-control" placeholder="Donor ID" name="DonorID" type="text"></div>
+            </div>
+	          <div class="form-group">
+              <label class="col-sm-2" for="OrganizationName">(Or) Organization Name</label>
+              <div class="col-sm-4"><input class="form-control" id="OrganizationName" name="OrganizationName" placeholder="(Or) Organization Name" type="text"></div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2" for="StreetAddress">Address</label>
+              <div class="col-sm-4"><input class="form-control" id="StreetAddress" name="StreetAddress" placeholder="Street Address" type="text"></div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2"></label>
+              <div class="col-sm-2"><input class="form-control" placeholder="City" name="City" type="text"></div>
+              <div class="col-sm-2"><input class="form-control" placeholder="State" name="State" type="text"></div>
+              <div class="col-sm-2"><input class="form-control" placeholder="Zip" name="Zip" type="text"></div>
+            </div>
+	          <div class="form-group">
+              <label class="col-sm-2" for="PhoneNumber">Contact Number</label>
+              <div class="col-sm-4"><input class="form-control" id="PhoneNumber" name="PhoneNumber" placeholder="Enter in the format XXX-XXX-XXXX" type="tel" pattern="^\d{3}-\d{3}-\d{4}$" ></div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2" for="Email">Email Address</label>
+              <div class="col-sm-4"><input class="form-control" id="Email" name="Email" placeholder="Email Address" type="email"></div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2" for="Comments">Comments</label>
+              <div class="col-sm-4"><input class="form-control" id="Comments" name="Comments" placeholder="Comments" type="text"></div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2" for="DonationInformation"><u>Donation Information</u></label>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2" for="DonationDate">Donation Date</label>
+              <div class="col-sm-4"><input class="form-control" id="DonationDate" name="DonationDate" type="text"></div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2" for="TotalPounds">Total Pounds</label>
+              <div class="col-sm-4"><input class="form-control" id="TotalPounds" name="TotalPounds" type="text"></div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2">Purchased by ICS</label>
+               <div class="col-sm-2"><input class="form-control" id="PurchasedbyICS" name="PurchasedbyICS" type="checkbox"></div>
+	          </div>
+            <div class="form-group">
+              <label class="col-sm-2" for="Comments">Comments</label>
+              <div class="col-sm-4"><input class="form-control" id="Comments" name="Comments" placeholder="Comments" type="text"></div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2" for="DonationItems"><u>Donation Items</u></label>
+              <div class="col-sm-2">
+                <button type="HelpwithCategories" class="btn btn-info pull-right">Help with Categories</button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2" for="DonationItems">Donation Items</label>
+              <label class="col-sm-2" for="CategoryLabel">Category</label>
+              <label class="col-sm-2" for="PoundsLabel">Pounds</label>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-4"><input class="form-control" id="Category" name="Category" type="text"></div>
+              <div class="col-sm-4"><input class="form-control" id="Pounds" name="Pounds" type="text"></div>
+              <div class="col-sm-2">
+                <button type="AddAnother" class="btn btn-info pull-right">+</button>
+              </div>
+            </div>
+         </div>
+
+        {% buttons %}
+
+        <div class="form-group">
+          <div class="col-sm-6">
+            <button type="SaveDonation" class="btn btn-info pull-right">Save Donation</button>
+          </div>
+        </div>
+          {% endbuttons %}
+        </form>
+      </div>
+
+{% endblock %}
