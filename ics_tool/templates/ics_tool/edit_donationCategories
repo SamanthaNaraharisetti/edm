@@ -42,62 +42,31 @@
               <label class="col-sm-2" for="ActiveStatus">Inactive</label>    
           </div>
 	  <div class="form-group">
-              <label class="col-sm-2" for="SelectDonor">Select Donor</label>
-              <div class="col-sm-4"><input class="form-control" id="SelectDonor" name="SelectDonor" placeholder="Select Donor" type="text"></div>
-            </div>
+	      <div class="col-sm-2"><input class="form-control" id="IfEdit" name="IfEdit" type="checkbox"></div>
+              <div class="col-sm-2"><input class="form-control" id="GroceryCategory" name="GroceryCategory" placeholder="Grocery" type="text"></div>
+              <div class="col-sm-2"><input class="form-control" id="GroceryDescription" name="GroceryDescription" type="text"></div>
+	      <div class="col-sm-2"><input class="form-control" id="GrocerySortOrder" name="GrocerySortOrder" placeholder="1" type="text"></div>
+	      <div class="col-sm-2"><input class="form-control" id="GroceryInactiveCheckBox" name="GroceryInactiveCheckBox" type="checkbox"></div>
+	    </div>
           <div class="form-group">
               <label class="col-sm-2" for="Instruction">TO MAKE CHANGES: Click the button left of the Category you want to Edit; Make the Edits; then click the "Saave" button. To CANCEL changes before saving, or to select another without saving, Press the "Cancel Edit" button below.</label>   
           </div>
-            <div class="form-group">
-              <label class="col-sm-2" for="SelectDonor">Select Donor</label>
-              <div class="col-sm-4"><input class="form-control" id="SelectDonor" name="SelectDonor" placeholder="Select Donor" type="text"></div>
-            </div>
-	    <div class="form-group">
-              <label class="col-sm-2">Donor Name</label>
-              <div class="col-sm-2"><input class="form-control" placeholder="First Name" name="FirstName" type="text"></div>
-              <div class="col-sm-2"><input class="form-control" placeholder="Last Name" name="LastName" type="text"></div>
-            </div>
-	    <div class="form-group">
-              <label class="col-sm-2" for="DonorInactive">Inactive</label>
-              <div class="col-sm-1"><input class="form-control" id="DonorInactive" name="DonorInactive" placeholder="Inactive" type="checkbox"></div>
-            </div>
-	    <div class="form-group">
-              <label class="col-sm-2" for="OrganizationName">(Or) Organization Name</label>
-              <div class="col-sm-4"><input class="form-control" id="OrganizationName" name="OrganizationName" placeholder="(Or) Organization Name" type="text"></div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2" for="SearchName">Search Name</label>
-              <div class="col-sm-4"><input class="form-control" id="SearchName" name="SearchName" placeholder="Search Name" type="text"></div>
-            </div>
-	    <div class="form-group">
-              <label class="col-sm-2" for="StreetAddress">Address</label>
-              <div class="col-sm-4"><input class="form-control" id="StreetAddress" name="StreetAddress" placeholder="Street Address" type="text"></div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2"></label>
-              <div class="col-sm-2"><input class="form-control" placeholder="City" name="City" type="text"></div>
-              <div class="col-sm-2"><input class="form-control" placeholder="State" name="State" type="text"></div>
-              <div class="col-sm-2"><input class="form-control" placeholder="Zip" name="Zip" type="text"></div>
-            </div>
-	    <div class="form-group">
-              <label class="col-sm-2" for="PhoneNumber">Contact Number</label>
-              <div class="col-sm-4"><input class="form-control" id="PhoneNumber" name="PhoneNumber" placeholder="Enter in the format XXX-XXX-XXXX" type="tel" pattern="^\d{3}-\d{3}-\d{4}$" ></div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2" for="Email">Email Address</label>
-              <div class="col-sm-4"><input class="form-control" id="Email" name="Email" placeholder="Email Address" type="email"></div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2" for="Comments">Comments</label>
-              <div class="col-sm-4"><input class="form-control" id="Comments" name="Comments" placeholder="Comments" type="text"></div>
-            </div>
          </div>
 
         {% buttons %}
 
         <div class="form-group">
           <div class="col-sm-6">
-            <button type="submit" class="btn btn-info pull-right">Save Donor</button>
+            <button type="submit" class="btn btn-info pull-right">Save Changes</button>
+          </div>
+	  <div class="col-sm-6">
+            <button type="Descriptions" class="btn btn-info pull-right">Descriptions</button>
+          </div>
+	  <div class="col-sm-6">
+            <button type="Modified" class="btn btn-info pull-right">Modified</button>
+          </div>
+	  <div class="col-sm-6">
+            <button type="CancelEdit" class="btn btn-info pull-right">Cancel Edit</button>
           </div>
         </div>
           {% endbuttons %}
