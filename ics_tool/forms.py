@@ -62,7 +62,7 @@ class AddDonationsForm(forms.ModelForm):
     PhoneNumber     = forms.CharField(max_length=15)
     Email           = forms.EmailField(max_length=100)
     Comments        = forms.CharField(max_length=225)
-    DonationDate    = forms.CharField(max_length=100)
+    DonationDate    = forms.DateField(max_length=100)
     TotalPounds     = forms.IntegerField()
     PurchasedbyICS  = forms.BooleanField(max_length=2,required=False)
     DonationComments= forms.CharField(max_length=225)
