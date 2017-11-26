@@ -120,8 +120,11 @@ def add_donation(request):
                             Email=Email,PhoneNumber=PhoneNumber,Comments=Comments,StreetAddress=StreetAddress,City=City,State=State,Zip=Zip,DonationDate=DonationDate,
                             TotalPounds=TotalPounds,PurchasedbyICS=PurchasedbyICS,DonationComments=DonationComments,Category=Category,
                            Pounds=Pounds)
+      LoadDonationsObj = Donations(donation_date = DonationDate, additional_comments = DonationComments)
+      savedModel = LoadDonationsObj.save()
       LoadDonorObj.save()
-
+      DonorDonationsObj = Make_Donation(donorID = DonorID, donationID = savedModel.id)
+      DonorDonationsObj.save()
       return render(request,'ics_tool/donor_success.html',{})
 
     print(form.errors)
